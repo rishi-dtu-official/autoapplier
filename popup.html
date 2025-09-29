@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoApplier - Profile Manager</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 AutoApplier</h1>
+      <p>Manage your job application profile</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="personal">Personal</button>
+      <button class="tab-button" data-tab="professional">Professional</button>
+      <button class="tab-button" data-tab="settings">Settings</button>
+    </div>
+
+    <!-- Personal Information Tab -->
+    <div class="tab-content active" id="personal-tab">
+      <form id="personal-form">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+            <option value="prefer-not-to-say">Prefer not to say</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address/Location</label>
+          <textarea id="address" name="address" rows="2" placeholder="City, State, Country"></textarea>
+        </div>
+      </form>
+    </div>
+
+    <!-- Professional Information Tab -->
+    <div class="tab-content" id="professional-tab">
+      <form id="professional-form">
+        <div class="form-group">
+          <label for="college">College/University</label>
+          <input type="text" id="college" name="college" placeholder="Your university name">
+        </div>
+
+        <div class="form-group">
+          <label for="degree">Degree</label>
+          <input type="text" id="degree" name="degree" placeholder="B.Tech Computer Science, MBA, etc.">
+        </div>
+
+        <div class="form-group">
+          <label for="graduation">Graduation Year</label>
+          <input type="number" id="graduation" name="graduation" placeholder="2024" min="1950" max="2030">
+        </div>
+
+        <div class="form-group">
+          <label for="linkedin">LinkedIn Profile</label>
+          <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+        </div>
+
+        <div class="form-group">
+          <label for="github">GitHub Profile</label>
+          <input type="url" id="github" name="github" placeholder="https://github.com/yourusername">
+        </div>
+
+        <div class="form-group">
+          <label for="skills">Skills (comma-separated)</label>
+          <textarea id="skills" name="skills" rows="3" placeholder="JavaScript, Python, React, Node.js, Machine Learning"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="experience">Work Experience & Internships</label>
+          <textarea id="experience" name="experience" rows="4" placeholder="Describe your work experience, internships, and positions of responsibility..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="projects">Notable Projects</label>
+          <textarea id="projects" name="projects" rows="3" placeholder="Brief description of your key projects..."></textarea>
+        </div>
+      </form>
+    </div>
+
+    <!-- Settings Tab -->
+    <div class="tab-content" id="settings-tab">
+      <div class="settings-section">
+        <h3>Extension Settings</h3>
+        
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="auto-fill-enabled" checked>
+            <span class="checkmark"></span>
+            Enable automatic form detection
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="show-notifications" checked>
+            <span class="checkmark"></span>
+            Show fill notifications
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="highlight-fields" checked>
+            <span class="checkmark"></span>
+            Highlight fillable fields
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>Data Management</h3>
+        <button id="export-data" class="btn btn-secondary">Export Profile Data</button>
+        <button id="import-data" class="btn btn-secondary">Import Profile Data</button>
+        <input type="file" id="import-file" accept=".json" style="display: none;">
+        <button id="clear-data" class="btn btn-danger">Clear All Data</button>
+      </div>
+
+      <div class="settings-section">
+        <h3>Quick Actions</h3>
+        <button id="fill-current-form" class="btn btn-primary">Fill Current Form</button>
+        <div id="form-status" class="status-info"></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="save-profile" class="btn btn-primary">Save Profile</button>
+      <button id="reset-form" class="btn btn-secondary">Reset</button>
+    </div>
+
+    <div id="status-message" class="status-message"></div>
+
+    <footer>
+      <p>AutoApplier v1.0.0 - Streamline your job applications</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
